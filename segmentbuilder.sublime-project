@@ -1,0 +1,32 @@
+{
+  "build_systems":
+  [
+    {
+      "cmd":
+      [
+        "ls"
+      ],
+      "name": "List"
+    }
+  ],
+  "folders":
+  [
+    {
+      "file_exclude_patterns":
+      [
+        "*.css"
+      ],
+      "name": "src",
+      "path": "src"
+    },
+    {
+      "name": "/",
+      "path": "/"
+    }
+  ],
+  "settings":
+  {
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true
+  }
+}
