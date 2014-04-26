@@ -1,7 +1,6 @@
 (ns segmentbuilder.strava
   (:use     [clojure.pprint])
-  (:require [mm.client                  :as client]
-            [clojure.data.json          :as json]
+  (:require [clojure.data.json          :as json]
             [clj-http.client            :as http]))
 
 (def client_id 1422)
@@ -10,7 +9,7 @@
 ; https://www.strava.com/oauth/authorize?client_id=1422&response_type=code&redirect_uri=http://localhost:3000/redirect&scope=write&state=myState
 
 (pprint
-  (client/get "https://www.strava.com/oauth/authorize"
+  (http/get "https://www.strava.com/oauth/authorize"
     {:query-params 
       {:client_id 1422
        :response_type "code"
@@ -19,12 +18,29 @@
        :state "myState"
        :approval_prompt "auto"}}))
 
-(pprint
-  (http/post "https://www.strava.com/oauth/token"
-    {:form-params 
-      {:client_id client_id
-       :client_secret client_secret
-       :code "4d4dfed207fd1b866fe8b394abdeb02a30f9230b"}}))
+; when you authorize, you'll get a new code each time
+; f04fce193a4fa502b6dc39c1664cae22008e6f22
+; c51f9cd5d501c0f6784d067e07309c1cc57dc5b8
+; c62614dde213753b0873144c58255f5bab4a4258
+; when you exchange the code for an access_token, 
+; you get the same token if you repeat the request multiple times
+; even if the access code changes, the same token is returned
+
+(defn process-code-from-redirect 
+  "returns the access_token"
+  [code]
+  (->
+    (http/post "https://www.strava.com/oauth/token"
+      {:form-params 
+        {:client_id client_id
+         :client_secret client_secret
+         :code code}})
+    :body
+    (json/read-json)
+    :access_token
+    ))
+
+(process-code-from-redirect "c62614dde213753b0873144c58255f5bab4a4258")
 
 (def access_token "5d6da0a9fef00b76fb2ed47909783a18c1e893a3")
 
