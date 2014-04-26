@@ -18,6 +18,7 @@
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]
   :env {:repl-user "slim" :repl-password "welcome1"}
+  :source-paths ["src/clj"]
   :profiles {
     :production {:env {:production true}}
     :clj  {:source-paths ["src/clj"]}
