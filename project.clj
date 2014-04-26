@@ -17,4 +17,29 @@
   :min-lein-version "2.0.0"
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]
-  :profiles {:production {:env {:production true}}})
+  :env {:repl-user "slim" :repl-password "welcome1"}
+  :profiles {
+    :production {:env {:production true}}
+    :clj  {:source-paths ["src/clj"]}
+    :cljs {:dependencies [
+                 [org.clojure/clojurescript     "0.0-2014"]
+                 [domina                        "1.0.0"]
+                 [hiccups                       "0.1.1"]
+                 [com.keminglabs/c2             "0.2.3"]]
+           :plugins [
+                 [lein-ring                     "0.8.5"]
+                 [lein-cljsbuild                "0.3.2"]] 
+           :cljsbuild {
+             :builds [
+               {
+                 :source-paths ["src/cljs"]
+                 :compiler {
+                   :output-to "resources/public/client.js"
+                   :optimizations :whitespace
+                   :pretty-print true}}
+              ]
+            }
+            :ring     {:handler segmentbuilder.web/-main} ; only relevant when the lein-ring plugin is active
+            :main segmentbuilder.web
+          }
+    })

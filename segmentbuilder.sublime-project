@@ -16,8 +16,16 @@
       [
         "*.css"
       ],
-      "name": "src",
-      "path": "src"
+      "name": "clj",
+      "path": "src/clj"
+    },
+    {
+      "file_exclude_patterns":
+      [
+        "*.css"
+      ],
+      "name": "cljs",
+      "path": "src/cljs"
     },
     {
       "name": "/",
