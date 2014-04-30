@@ -1,5 +1,35 @@
 <html>
-<body>
-  logged in
-</body>
+  <head >
+    <title>Strava Segment Builder</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Segment Builder</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" id="user">unknown</a></li>
+          <li><a href="#"><img id="image" src="unknown.png"/></a></li>
+          <li id="login">
+            <a href="https://www.strava.com/oauth/authorize?client_id=1422&response_type=code&redirect_uri=http://localhost:5000/redirect&scope=write&state=random">
+              <img src="http://strava.github.io/api/images/LogInWithStrava.png"/>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid" id="data">
+      <div class="row">
+        <table class="table">
+        </table>
+      </div>
+    </div>
+    <script src="jquery-1.8.3.min.js" language="javascript"></script> 
+    <script src="bootstrap/js/bootstrap.js" language="javascript"></script>
+    <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" language="javascript">strava.client.main();</script>
+  </body>
 </html>

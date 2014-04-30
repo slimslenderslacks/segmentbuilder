@@ -46,13 +46,21 @@
 
 (def access_token "5d6da0a9fef00b76fb2ed47909783a18c1e893a3")
 
-(defn- get-data [url]
+(defn- get-data [url token]
   (->
     (http/get url
-      {:headers {"authorization" (str "Bearer " access_token)}
+      {:headers {"authorization" (str "Bearer " token)}
        :throw-exceptions false})
     :body
     (json/read-json)))
+
+(defn user [token]
+  (get-data "https://www.strava.com/api/v3/athlete" token))
+(defn segments 
+  ([token]
+    (get-data "https://www.strava.com/api/v3/segments/starred" token))
+  ([id token]
+    (get-data (str "https://www.strava.com/api/v3/segments/" id) token)))
 
 ; (pprint (get-data "https://www.strava.com/api/v3/athlete"))
 ; (pprint (get-data "https://www.strava.com/api/v3/segments/starred"))

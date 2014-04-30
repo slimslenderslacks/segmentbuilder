@@ -3,7 +3,7 @@
   :url "http://segmentbuilder.herokuapp.com"
   :license {:name "FIXME: choose"
             :url "http://example.com/FIXME"}
-  :dependencies [[org.clojure/clojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.5.1"]
                  [compojure "1.1.1"]
                  [ring/ring-jetty-adapter "1.1.0"]
                  [ring/ring-devel "1.1.0"]
@@ -12,10 +12,12 @@
                  [com.cemerick/drawbridge "0.0.6"]
                  [org.clojure/data.json         "0.2.1"]
                  [clj-http                      "0.7.7"]             ; wraps Apache httpComponents
+                 [ring/ring-json                "0.1.2"]             ; ring middleware
+
 
                 ]
   :min-lein-version "2.0.0"
-  :plugins [[environ/environ.lein "0.2.1"]]
+  :plugins [[environ/environ.lein "0.2.1"][lein-ring                     "0.8.5"]]
   :hooks [environ.leiningen.hooks]
   :env {:repl-user "slim" :repl-password "welcome1"}
   :source-paths ["src/clj"]
@@ -23,13 +25,12 @@
     :production {:env {:production true}}
     :clj  {:source-paths ["src/clj"]}
     :cljs {:dependencies [
-                 [org.clojure/clojurescript     "0.0-2014"]
+                 [org.clojure/clojurescript     "0.0-1450"]
                  [domina                        "1.0.0"]
-                 [hiccups                       "0.1.1"]
-                 [com.keminglabs/c2             "0.2.3"]]
-           :plugins [
-                 [lein-ring                     "0.8.5"]
-                 [lein-cljsbuild                "0.3.2"]] 
+                 [hiccups                       "0.1.1"]]
+           :plugins [                 
+                 [lein-cljsbuild                "0.3.2"]
+                 ] 
            :cljsbuild {
              :builds [
                {

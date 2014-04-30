@@ -1,1 +1,1 @@
-lein with-profile clj compile
+lein with-profile clj compile :all
