@@ -14,7 +14,9 @@
                  [clj-http                      "0.7.7"]             ; wraps Apache httpComponents
                  [ring/ring-json                "0.1.2"]             ; ring middleware
 
-
+                 [org.clojure/data.xml          "0.0.7"]
+                 [org.clojure/data.json         "0.2.1"]
+                 
                 ]
   :min-lein-version "2.0.0"
   :plugins [[environ/environ.lein "0.2.1"][lein-ring                     "0.8.5"]]

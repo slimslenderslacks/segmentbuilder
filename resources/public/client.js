@@ -28124,63 +28124,68 @@ goog.require("goog.net.XhrIo");
 goog.require("domina.xpath");
 goog.require("domina");
 goog.require("hiccups.runtime");
-strava.client.segment_row = function segment_row(p__71096, segment) {
-  var map__71115__71116 = p__71096;
-  var map__71115__71117 = cljs.core.seq_QMARK_.call(null, map__71115__71116) ? cljs.core.apply.call(null, cljs.core.hash_map, map__71115__71116) : map__71115__71116;
-  var data__71118 = map__71115__71117;
-  var id__71119 = cljs.core._lookup.call(null, map__71115__71117, "\ufdd0'id", null);
-  var end_latlng__71120 = cljs.core._lookup.call(null, map__71115__71117, "\ufdd0'end_latlng", null);
-  var start_latlng__71121 = cljs.core._lookup.call(null, map__71115__71117, "\ufdd0'start_latlng", null);
-  var name__71122 = cljs.core._lookup.call(null, map__71115__71117, "\ufdd0'name", null);
-  return[cljs.core.str("<tr"), cljs.core.str(""), cljs.core.str(">"), cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'role", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'role":"whatever", "\ufdd0'id":[cljs.core.str("#"), cljs.core.str(id__71119)].join(""), "\ufdd0'class":null}))), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, id__71119)), cljs.core.str("</td>"), cljs.core.str(function() {
-    var attrs71123__71128 = name__71122;
-    if(cljs.core.map_QMARK_.call(null, attrs71123__71128)) {
-      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs71123__71128))), cljs.core.str(" />")].join("")
+strava.client.segment_row = function segment_row(p__15523, segment) {
+  var map__15542__15543 = p__15523;
+  var map__15542__15544 = cljs.core.seq_QMARK_.call(null, map__15542__15543) ? cljs.core.apply.call(null, cljs.core.hash_map, map__15542__15543) : map__15542__15543;
+  var data__15545 = map__15542__15544;
+  var id__15546 = cljs.core._lookup.call(null, map__15542__15544, "\ufdd0'id", null);
+  var end_latlng__15547 = cljs.core._lookup.call(null, map__15542__15544, "\ufdd0'end_latlng", null);
+  var start_latlng__15548 = cljs.core._lookup.call(null, map__15542__15544, "\ufdd0'start_latlng", null);
+  var name__15549 = cljs.core._lookup.call(null, map__15542__15544, "\ufdd0'name", null);
+  return[cljs.core.str("<tr"), cljs.core.str(""), cljs.core.str(">"), cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'role", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'role":"whatever", "\ufdd0'id":[cljs.core.str("#"), cljs.core.str(id__15546)].join(""), "\ufdd0'class":null}))), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, id__15546)), cljs.core.str("</td>"), cljs.core.str(function() {
+    var attrs15550__15555 = name__15549;
+    if(cljs.core.map_QMARK_.call(null, attrs15550__15555)) {
+      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs15550__15555))), cljs.core.str(" />")].join("")
     }else {
-      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs71123__71128)), cljs.core.str("</td>")].join("")
+      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs15550__15555)), cljs.core.str("</td>")].join("")
     }
   }()), cljs.core.str(function() {
-    var attrs71124__71129 = cljs.core.first.call(null, start_latlng__71121);
-    if(cljs.core.map_QMARK_.call(null, attrs71124__71129)) {
-      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs71124__71129))), cljs.core.str(" />")].join("")
+    var attrs15551__15556 = cljs.core.first.call(null, start_latlng__15548);
+    if(cljs.core.map_QMARK_.call(null, attrs15551__15556)) {
+      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs15551__15556))), cljs.core.str(" />")].join("")
     }else {
-      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs71124__71129)), cljs.core.str("</td>")].join("")
+      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs15551__15556)), cljs.core.str("</td>")].join("")
     }
   }()), cljs.core.str(function() {
-    var attrs71125__71130 = cljs.core.second.call(null, start_latlng__71121);
-    if(cljs.core.map_QMARK_.call(null, attrs71125__71130)) {
-      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs71125__71130))), cljs.core.str(" />")].join("")
+    var attrs15552__15557 = cljs.core.second.call(null, start_latlng__15548);
+    if(cljs.core.map_QMARK_.call(null, attrs15552__15557)) {
+      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs15552__15557))), cljs.core.str(" />")].join("")
     }else {
-      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs71125__71130)), cljs.core.str("</td>")].join("")
+      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs15552__15557)), cljs.core.str("</td>")].join("")
     }
   }()), cljs.core.str(function() {
-    var attrs71126__71131 = cljs.core.first.call(null, end_latlng__71120);
-    if(cljs.core.map_QMARK_.call(null, attrs71126__71131)) {
-      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs71126__71131))), cljs.core.str(" />")].join("")
+    var attrs15553__15558 = cljs.core.first.call(null, end_latlng__15547);
+    if(cljs.core.map_QMARK_.call(null, attrs15553__15558)) {
+      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs15553__15558))), cljs.core.str(" />")].join("")
     }else {
-      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs71126__71131)), cljs.core.str("</td>")].join("")
+      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs15553__15558)), cljs.core.str("</td>")].join("")
     }
   }()), cljs.core.str(function() {
-    var attrs71127__71132 = cljs.core.second.call(null, end_latlng__71120);
-    if(cljs.core.map_QMARK_.call(null, attrs71127__71132)) {
-      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs71127__71132))), cljs.core.str(" />")].join("")
+    var attrs15554__15559 = cljs.core.second.call(null, end_latlng__15547);
+    if(cljs.core.map_QMARK_.call(null, attrs15554__15559)) {
+      return[cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), attrs15554__15559))), cljs.core.str(" />")].join("")
     }else {
-      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs71127__71132)), cljs.core.str("</td>")].join("")
+      return[cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, attrs15554__15559)), cljs.core.str("</td>")].join("")
     }
   }()), cljs.core.str("</tr>")].join("")
 };
 strava.client.main = function main() {
   goog.net.XhrIo.send([cljs.core.str("user")].join(""), function(json) {
-    var data__71136 = cljs.core.js__GT_clj.call(null, json.target.getResponseJson(), "\ufdd0'keywordize-keys", true);
-    console.log("user", [cljs.core.str(data__71136)].join(""));
-    domina.set_text_BANG_.call(null, domina.by_id.call(null, "user"), [cljs.core.str((new cljs.core.Keyword("\ufdd0'firstname")).call(null, data__71136)), cljs.core.str(" "), cljs.core.str((new cljs.core.Keyword("\ufdd0'lastname")).call(null, data__71136))].join(""));
-    return domina.set_attr_BANG_.call(null, domina.by_id.call(null, "image"), "src", (new cljs.core.Keyword("\ufdd0'profile_medium")).call(null, data__71136))
+    var data__15564 = cljs.core.js__GT_clj.call(null, json.target.getResponseJson(), "\ufdd0'keywordize-keys", true);
+    console.log("user", [cljs.core.str(data__15564)].join(""));
+    domina.set_text_BANG_.call(null, domina.by_id.call(null, "user"), [cljs.core.str((new cljs.core.Keyword("\ufdd0'firstname")).call(null, data__15564)), cljs.core.str(" "), cljs.core.str((new cljs.core.Keyword("\ufdd0'lastname")).call(null, data__15564))].join(""));
+    return domina.set_attr_BANG_.call(null, domina.by_id.call(null, "image"), "src", (new cljs.core.Keyword("\ufdd0'profile_medium")).call(null, data__15564))
+  });
+  goog.net.XhrIo.send([cljs.core.str("dropbox/user")].join(""), function(json) {
+    var data__15565 = cljs.core.js__GT_clj.call(null, json.target.getResponseJson(), "\ufdd0'keywordize-keys", true);
+    console.log("user", [cljs.core.str(data__15565)].join(""));
+    return domina.set_text_BANG_.call(null, domina.by_id.call(null, "dropbox-user"), [cljs.core.str("Dropbox: "), cljs.core.str((new cljs.core.Keyword("\ufdd0'display_name")).call(null, data__15565))].join(""))
   });
   return goog.net.XhrIo.send([cljs.core.str("segments")].join(""), function(json) {
-    var data__71137 = cljs.core.js__GT_clj.call(null, json.target.getResponseJson(), "\ufdd0'keywordize-keys", true);
-    var sel_div__71138 = domina.xpath.xpath.call(null, "//tbody[@id='data']");
-    domina.destroy_children_BANG_.call(null, sel_div__71138);
-    return domina.append_BANG_.call(null, sel_div__71138, [cljs.core.str(cljs.core.map.call(null, strava.client.segment_row, data__71137))].join(""))
+    var data__15566 = cljs.core.js__GT_clj.call(null, json.target.getResponseJson(), "\ufdd0'keywordize-keys", true);
+    var sel_div__15567 = domina.xpath.xpath.call(null, "//tbody[@id='data']");
+    domina.destroy_children_BANG_.call(null, sel_div__15567);
+    return domina.append_BANG_.call(null, sel_div__15567, [cljs.core.str(cljs.core.map.call(null, strava.client.segment_row, data__15566))].join(""))
   })
 };
 goog.exportSymbol("strava.client.main", strava.client.main);

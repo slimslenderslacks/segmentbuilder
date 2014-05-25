@@ -19,6 +19,11 @@
     [:td (second end_latlng)]
   ])
 
+(defn ^:export filesSelected [files]
+  (doseq [k (keys (first (js->clj files)))]
+    (.log js/console "key->" k))
+  (d/set-text! (d/by-id "selected") (get (first (js->clj files)) "link")))
+
 (defn ^:export main []
   
   (xhr/send (str "user") 
@@ -27,6 +32,14 @@
         (.log js/console "user" (str data))
         (d/set-text! (d/by-id "user") (str (:firstname data) " " (:lastname data)))
         (d/set-attr! (d/by-id "image") "src" (:profile_medium data)))))
+
+  (xhr/send (str "dropbox/user") 
+    (fn [json]
+      (let [data (js->clj (.getResponseJson (.-target json)) :keywordize-keys true)]
+        (.log js/console "user" (str data))
+        (d/set-text! (d/by-id "dropbox-user") (str "Dropbox: " (:display_name data)))
+        ;(d/set-text! (d/by-id "dropbox-current-user") (:display_name data))
+        )))
 
   (xhr/send (str "segments")
     (fn [json]

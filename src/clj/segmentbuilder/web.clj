@@ -12,7 +12,8 @@
             [ring.middleware.basic-authentication :as basic]
             [cemerick.drawbridge :as drawbridge]
             [environ.core :refer [env]]
-            [segmentbuilder.strava :as strava]))
+            [segmentbuilder.strava :as strava]
+            [segmentbuilder.dropbox :as dropbox]))
 
 (def oauth_state "random")
 
@@ -39,10 +40,21 @@
       {:status 403
        :headers {"Content-Type" "text/plain"}
        :body (str "incorrect state returned was" state)}))
+  (GET "/dropbox/redirect" [state code :as {session :session}]
+    (if (and (= state oauth_state) (not (nil? code)))
+      (if-let [oauth_token (dropbox/process-code-from-redirect code)]
+        (let [r (assoc (resource-response "index.html" {:root "public"}) :session (assoc session :dropbox_oauth_token oauth_token))]
+          (println "response is" r)
+          r)
+        (resource-response "/index.html" {:root "public"}))
+      {:status 403
+       :headers {"Content-Type" "text/plain"}
+       :body (str "incorrect state returned was" state)}))
   (GET "/"             []                            (resource-response "index.html" {:root "public"}))
   (GET "/segments"     [:as {session :session}]      (response (strava/segments (:oauth_token session))))
   (GET "/segments/:id" [id :as {session :session}]   (response (strava/segments id (:oauth_token session))))
   (GET "/user"         [:as {session :session}]      (response (strava/user     (:oauth_token session))))
+  (GET "/dropbox/user" [:as {session :session}]      (response (dropbox/user    (:dropbox_oauth_token session))))
   (route/resources "/")
   (ANY "*" []
     (route/not-found (slurp (io/resource "404.html")))))
