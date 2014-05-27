@@ -13,7 +13,8 @@
             [cemerick.drawbridge :as drawbridge]
             [environ.core :refer [env]]
             [segmentbuilder.strava :as strava]
-            [segmentbuilder.dropbox :as dropbox]))
+            [segmentbuilder.dropbox :as dropbox]
+            [segmentbuilder.gpx     :as gpx]))
 
 (def oauth_state "random")
 
@@ -55,6 +56,7 @@
   (GET "/segments/:id" [id :as {session :session}]   (response (strava/segments id (:oauth_token session))))
   (GET "/user"         [:as {session :session}]      (response (strava/user     (:oauth_token session))))
   (GET "/dropbox/user" [:as {session :session}]      (response (dropbox/user    (:dropbox_oauth_token session))))
+  (POST "/generate"    [gpx-url segment-id]          (response (gpx/write-gpx gpx-url segment-id)))
   (route/resources "/")
   (ANY "*" []
     (route/not-found (slurp (io/resource "404.html")))))

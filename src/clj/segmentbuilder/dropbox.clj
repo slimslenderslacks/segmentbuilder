@@ -24,11 +24,6 @@
     ))
 
 (def token "Sihum6rFJDoAAAAAAAAEJzeeaxepHVZ6E61uE8MF8wmyL81O16si4PxzqR_35xi3")
-; (def url "https://api-content.dropbox.com/1/files/dropbox/s/6jw9o6zrc347vuf/test.txt")
-; (def url "https://api-content.dropbox.com/1/files/dropbox/gpx/test.txt")
-; (def url "https://www.dropbox.com/s/6jw9o6zrc347vuf/test.txt")
-; (def url "https://dl.dropboxusercontent.com/1/view/51lvbdvx1pcacb3/gpx/test.txt")
-(def url "https://dl.dropboxusercontent.com/1/view/esg9kbznlh1vreg/gpx/test.gpx")
 
 (defn- get-data [url token]
   (->
@@ -42,7 +37,7 @@
   (println "dropbox oauth token is:  " token)
   (get-data "https://api.dropbox.com/1/account/info" token))
 
-(defn file [token]
+(defn file [token url]
   (->
     (http/get url
       {:headers {"authorization" (str "Bearer " token)}

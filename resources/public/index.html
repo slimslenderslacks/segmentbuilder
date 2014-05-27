@@ -11,26 +11,52 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" id="user">unknown</a></li>
-          <li><a href="#"><img id="image" src="unknown.png"/></a></li>
-          <li id="login">
-            <a href="https://www.strava.com/oauth/authorize?client_id=1422&response_type=code&redirect_uri=http://segmentbuilder.herokuapp.com/redirect&scope=write&state=random">
-              <img src="http://strava.github.io/api/images/LogInWithStrava.png"/>
-            </a>
-          </li>
-          <li id="dropbox-login">
-            <a href="https://www.dropbox.com/1/oauth2/authorize?client_id=7kmzgqwz1ehxrwm&response_type=code&redirect_uri=http://localhost:5000/dropbox/redirect&state=random">
-              <img src="/dropbox-logos_dropbox-glyph-blue.png" height="40px"/>
-            </a>
-          </li>
-          <li><a href="#" id="dropbox-user">not logged in</a></li>
+          <li><a href="#"><img id="strava-photo" src="unknown.png"/></a></li>
         </ul>
       </div>
     </nav>
     <div class="container-fluid" style="padding-top: 100px;">
       <div class="row">
         <div class="panel panel-default">
-          <div class="panel-heading">Step1:  Select .gpx file from Dropbox</div>
+          <div class="panel-heading">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-1">Step1:</div>
+                <div class="col-md-2">
+                  <a href="https://www.strava.com/oauth/authorize?client_id=1422&response_type=code&redirect_uri=http://localhost:5000/redirect&scope=write&state=random">
+                    <img src="http://strava.github.io/api/images/LogInWithStrava.png"/>
+                  </a>
+                </div>
+                <div class="col-md-9" id="strava-user"></div>
+              </div>
+            </div>            
+          </div>
+          <div class="panel-body">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-1">Step2:</div>
+                <div class="col-md-2">
+                  <a href="https://www.dropbox.com/1/oauth2/authorize?client_id=7kmzgqwz1ehxrwm&response_type=code&redirect_uri=http://localhost:5000/dropbox/redirect&state=random">
+                    <img src="/dropbox-logos_dropbox-glyph-blue.png" height="40px"/>Login To DropBox
+                  </a>
+                </div>
+                <div class="col-md-9" id="dropbox-user"></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">Step3:  Select .gpx file from Dropbox</div>
           <div class="panel-body">
             <div class="container">
               <div class="row">
@@ -43,7 +69,7 @@
       </div>
       <div class="row">
         <div class="panel panel-default">
-          <div class="panel-heading">Step2:  Select one of your favorite segments</div>
+          <div class="panel-heading">Step4:  Select one of your favorite segments</div>
           <div class="panel-body">
             <table id="data" class="table table-striped table-condensed table-hover">
               <thead>
@@ -62,9 +88,9 @@
       </div> <!-- end row -->
       <div class="row">
         <div class="panel panel-default">
-          <div class="panel-heading">Step3:  Transform the selected .gpx file</div>
+          <div class="panel-heading">Step5:  Transform the selected .gpx file</div>
           <div class="panel-body">
-            <button type="button" class="btn btn-lrg">Generate Segment GPX</button>
+            <button id="generate" type="button" class="btn btn-lrg">Generate Segment GPX</button>
           </div>
         </div> <!-- end panel -->
       </div> <!-- end row -->
