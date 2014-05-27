@@ -23,12 +23,12 @@
     :access_token
     ))
 
-(def token "Sihum6rFJDoAAAAAAAAEIlTdULgYSfEDTDCnZXKNh1m7gI6H13vVnPxJcTwvqFpV")
-(def url "https://api-content.dropbox.com/1/files/dropbox/s/6jw9o6zrc347vuf/test.txt")
-(def url "https://api-content.dropbox.com/1/files/dropbox/gpx/test.txt")
-(def url "https://www.dropbox.com/s/6jw9o6zrc347vuf/test.txt")
-(def url "https://dl.dropboxusercontent.com/1/view/51lvbdvx1pcacb3/gpx/test.txt")
-(def url "https://dl.dropboxusercontent.com/1/view/1ur1j8l35jpu69o/gpx/test.gpx")
+(def token "Sihum6rFJDoAAAAAAAAEJzeeaxepHVZ6E61uE8MF8wmyL81O16si4PxzqR_35xi3")
+; (def url "https://api-content.dropbox.com/1/files/dropbox/s/6jw9o6zrc347vuf/test.txt")
+; (def url "https://api-content.dropbox.com/1/files/dropbox/gpx/test.txt")
+; (def url "https://www.dropbox.com/s/6jw9o6zrc347vuf/test.txt")
+; (def url "https://dl.dropboxusercontent.com/1/view/51lvbdvx1pcacb3/gpx/test.txt")
+(def url "https://dl.dropboxusercontent.com/1/view/esg9kbznlh1vreg/gpx/test.gpx")
 
 (defn- get-data [url token]
   (->

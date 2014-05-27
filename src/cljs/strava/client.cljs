@@ -22,7 +22,7 @@
 (defn ^:export filesSelected [files]
   (doseq [k (keys (first (js->clj files)))]
     (.log js/console "key->" k))
-  (d/set-text! (d/by-id "selected") (get (first (js->clj files)) "link")))
+  (d/set-text! (d/by-id "selected") (str "Selected Resource:  " (get (first (js->clj files)) "link"))))
 
 (defn ^:export main []
   
